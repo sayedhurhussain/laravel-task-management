@@ -30,6 +30,11 @@
                                     <td>{{ $task->created_at }}</td>
                                     <td>
                                         <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">Edit</a>
+                                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
