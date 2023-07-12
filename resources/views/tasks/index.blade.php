@@ -15,9 +15,10 @@
                         <thead class="bg-light">
                             <tr>
                                 <th>Task Name</th>
-                                <th>Task Priority</th>
-                                <th>Project Name</th>
+                                <th>Priority</th>
+                                <th>Project</th>
                                 <th>Timestamps</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,9 @@
                                     <td>{{ $task->priority }}</td>
                                     <td>{{ $task->project->name }}</td>
                                     <td>{{ $task->created_at }}</td>
+                                    <td>
+                                        <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">Edit</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
