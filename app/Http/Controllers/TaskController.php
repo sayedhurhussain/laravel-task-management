@@ -23,7 +23,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $projects = Project::all();
+        return view('tasks.create', compact('projects'));
     }
 
     /**
