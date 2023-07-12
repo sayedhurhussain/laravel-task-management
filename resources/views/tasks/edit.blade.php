@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-@section('title', 'Create Task')
+@section('title', 'Update Task')
 
 <div class="row">
     <div class="col-xl-12">
@@ -9,7 +9,7 @@
                 <h1>Create Task</h1>
             </div>
             <div class="card-body">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('tasks.update', ['id' => $task->id]) }}">
                     @csrf
                     <div class="form-group">
                         <label for="name">Task Name<span class="text-danger">*</span></label>

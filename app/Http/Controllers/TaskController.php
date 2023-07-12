@@ -52,7 +52,6 @@ class TaskController extends Controller
     public function edit(string $id)
     {
         $task = Task::findOrFail($id);
-        // return $task;
         $projects = Project::all();
         return view('tasks.edit', compact('task', 'projects'));
     }
@@ -60,9 +59,12 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TaskRequest $request, string $id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->update($request->all());
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
 
     /**
