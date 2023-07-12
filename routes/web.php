@@ -22,4 +22,5 @@ Route::get('/', function () {
 Route::controller(TaskController::class)->prefix('tasks')->group(function () {
     Route::get('/',  'index')->name('tasks.index');
     Route::get('/create',  'create')->name('tasks.create');
+    Route::post('/store',  'store')->name('tasks.store');
 });
